@@ -1,38 +1,91 @@
-# Uber Data Analytics | Modern Data Engineering GCP Project
+# Uber Data Analytics Platform | Modern Data Engineering on GCP
 
-## Introduction
+## Overview
 
-The goal of this project is to perform data analytics on Uber data using various tools and technologies, including GCP Storage, Python, Compute Instance, Mage Data Pipeline Tool, BigQuery, and Looker Studio.
+This project demonstrates an end-to-end data engineering pipeline built on Google Cloud Platform to analyze Uber trip data.
 
-## Architecture 
-<img src="architecture.jpg">
+The solution covers the complete lifecycle — from raw data ingestion and transformation to dimensional modeling, analytical querying, and dashboard creation.
 
-## Technology Used
-- Programming Language - Python
+---
 
-Google Cloud Platform
-1. Google Storage
-2. Compute Instance 
-3. BigQuery
-4. Looker Studio
+## Architecture
 
-Modern Data Pipeine Tool - https://www.mage.ai/
+Raw Data (Uber Trip Records)  
+→ Google Cloud Storage  
+→ Mage ETL (Compute Engine VM)  
+→ BigQuery (Analytics Layer)  
+→ Looker Studio (Dashboard & Reporting)
 
-Contibute to this open source project - https://github.com/mage-ai/mage-ai
+---
 
+## Tech Stack
 
-## Dataset Used
-TLC Trip Record Data
-Yellow and green taxi trip records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts. 
+### Programming
+- Python
 
-Here is the dataset used in the video - https://github.com/darshilparmar/uber-etl-pipeline-data-engineering-project/blob/main/data/uber_data.csv
+### Google Cloud Platform
+- Google Cloud Storage (Raw Data Layer)
+- Compute Engine (Mage ETL Runtime)
+- BigQuery (Data Warehouse & Analytics)
+- Looker Studio (Business Intelligence)
 
-More info about dataset can be found here:
-1. Website - https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-2. Data Dictionary - https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+### ETL Orchestration
+- Mage (Modern Data Pipeline Tool)
 
-## Data Model
+---
+
+## Dataset
+
+New York TLC Trip Record Data
+
+The dataset includes:
+- Pickup and drop-off timestamps  
+- Pickup and drop-off locations (latitude & longitude)  
+- Trip distance  
+- Passenger count  
+- Fare amount and itemized charges  
+- Rate codes and payment types  
+
+---
+
+## Data Modeling
+
+A dimensional star schema was implemented.
+
+### Fact Table
+- Trip-level transactional data
+
+### Dimension Tables
+- Datetime
+- Passenger Count
+- Trip Distance
+- Rate Code
+- Payment Type
+- Pickup Location
+- Drop Location
+
 <img src="data_model.jpeg">
 
-## Complete Video Tutorial 
-Video Link - https://youtu.be/WpQECq5Hx9g
+---
+
+## Key Features
+
+- Built a cloud-native ETL pipeline using Mage on Compute Engine
+- Implemented star schema dimensional modeling for analytical efficiency
+- Performed data cleansing and transformation using Python
+- Loaded curated datasets into BigQuery for scalable querying
+- Designed interactive dashboards in Looker Studio to visualize KPIs such as:
+  - Total Revenue
+  - Average Fare
+  - Trip Distance
+  - Geospatial Pickup & Drop Trends
+
+---
+
+## Outcome
+
+This project demonstrates:
+- End-to-end data pipeline design on GCP
+- Practical dimensional modeling
+- Cloud-based analytics using BigQuery
+- Business-ready dashboard creation
